@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import { BookOpen, Github, GraduationCap, Mail, MapPin, X } from '@lucide/astro';
+import profileImg from '../../assets/profile.png';
+import { profile } from '../../data/profile';
+
+---
+
+<aside class="profile-sidebar" id="profile-sidebar">
+  <button class="sidebar-close" id="menu-close" aria-label="Close navigation"><X size={22} /></button>
+  <a href="/" class="portrait-wrap" aria-label="Home">
+    <Image src={profileImg} alt={`Portrait of ${profile.name}`} class="portrait" width={360} height={450} loading="eager" fetchpriority="high" />
+  </a>
+  <div class="identity">
+    <p class="eyebrow">Academic profile</p><h1>{profile.name}</h1>
+    <p class="position">{profile.position}</p><p class="affiliation">{profile.affiliation}</p>
+  </div>
+  <div class="location"><MapPin size={15} /> {profile.location}</div>
+  <p class="sidebar-label">Contact & profiles</p>
+  <div class="profile-links" aria-label="Academic links">
+    <a href={`mailto:${profile.email}`}><Mail size={17} /> Email</a>
+    <a href={profile.links.scholar || '/publications/'}><GraduationCap size={17} /> Scholar</a>
+    <a href={profile.links.orcid || '/contact/'}><BookOpen size={17} /> ORCID</a>
+    <a href={profile.links.github || '/contact/'}><Github size={17} /> GitHub</a>
+  </div>
+</aside>

@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { BookOpen, Github, GraduationCap, Mail, MapPin } from '@lucide/astro';
+import { profile } from '../data/profile';
+---
+<Layout title={`Contact — ${profile.name}`} description={`Contact information and academic profiles for ${profile.name}.`}>
+  <header class="page-hero"><p class="section-kicker">Contact</p><h2>Let’s discuss research and collaboration.</h2><p>Add whether you welcome research, speaking, supervision, media, or industry enquiries.</p></header>
+  <section class="detail-section contact-grid">
+    <a class="contact-card" href={`mailto:${profile.email}`}><Mail size={20} /><span>Email</span><strong>{profile.email}</strong></a>
+    <div class="contact-card"><MapPin size={20} /><span>Location</span><strong>{profile.location}</strong></div>
+    <a class="contact-card" href={profile.links.scholar || '#'}><GraduationCap size={20} /><span>Google Scholar</span><strong>Add profile URL</strong></a>
+    <a class="contact-card" href={profile.links.orcid || '#'}><BookOpen size={20} /><span>ORCID</span><strong>Add ORCID iD</strong></a>
+    <a class="contact-card" href={profile.links.github || '#'}><Github size={20} /><span>GitHub</span><strong>Add profile URL</strong></a>
+  </section>
+  <footer><span>© {new Date().getFullYear()} {profile.name}</span><span>Contact</span></footer>
+</Layout>

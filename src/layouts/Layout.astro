@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import { Menu } from '@lucide/astro';
+import ProfileSidebar from '../components/layout/ProfileSidebar.astro';
+import favicon from '../assets/favicon.png';
+import profileImg from '../assets/profile.png';
+import { profile } from '../data/profile';
+
+export interface Props { title?: string; description?: string; }
+const { title = `${profile.name} — Academic Profile`, description = `Academic profile of ${profile.name}.` } = Astro.props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
+const image = Astro.site ? new URL(profileImg.src, Astro.site).href : profileImg.src;
+const nav = [
+  { title: 'About', url: '/' },
+  { title: 'Research', url: '/research/' },
+  { title: 'Publications', url: '/publications/' },
+  { title: 'Experience', url: '/experience/' },
+  { title: 'Contact', url: '/contact/' },
+];
+const isActive = (url: string) => url === '/' ? Astro.url.pathname === '/' : Astro.url.pathname.startsWith(url);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} /><meta name="author" content={profile.name} /><meta name="theme-color" content="#f4f1ea" />
+    <title>{title}</title><link rel="icon" type="image/png" href={favicon.src} /><link rel="canonical" href={canonical} />
+    <meta property="og:type" content="profile" /><meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:image" content={image} /><meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" /><meta name="twitter:title" content={title} /><meta name="twitter:description" content={description} /><meta name="twitter:image" content={image} />
+    <script type="application/ld+json" set:html={JSON.stringify({ '@context':'https://schema.org', '@type':'Person', name:profile.name, url:canonical, image, description })} />
+  </head>
+  <body>
+    <button class="mobile-menu-button" id="menu-open" aria-label="Open navigation"><Menu size={22} /></button>
+    <div class="academic-shell">
+      <ProfileSidebar />
+      <div class="right-pane">
+        <header class="topbar">
+          <a class="mobile-name" href="/">{profile.name}</a>
+          <nav class="top-nav" aria-label="Primary navigation">
+            {nav.map((item) => <a href={item.url} class:list={{ active: isActive(item.url) }} aria-current={isActive(item.url) ? 'page' : undefined}>{item.title}</a>)}
+          </nav>
+        </header>
+        <main class="academic-content"><slot /></main>
+      </div>
+    </div>
+    <div class="sidebar-scrim" id="sidebar-scrim"></div>
+    <script>
+      const sidebar = document.querySelector('#profile-sidebar'); const scrim = document.querySelector('#sidebar-scrim');
+      const closeMenu = () => { sidebar?.classList.remove('is-open'); scrim?.classList.remove('is-visible'); };
+      document.querySelector('#menu-open')?.addEventListener('click', () => { sidebar?.classList.add('is-open'); scrim?.classList.add('is-visible'); });
+      document.querySelector('#menu-close')?.addEventListener('click', closeMenu); scrim?.addEventListener('click', closeMenu);
+    </script>
+  </body>
+</html>

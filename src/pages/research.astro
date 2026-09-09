@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { profile, researchInterests } from '../data/profile';
+---
+<Layout title={`Research — ${profile.name}`} description={`Research interests and agenda of ${profile.name}.`}>
+  <header class="page-hero"><p class="section-kicker">Research</p><h2>Questions and themes that guide my work.</h2><p>Use this page to explain the intellectual thread connecting your projects—not only to list keywords.</p></header>
+  <section class="detail-section">
+    <div class="research-list">{researchInterests.map((item, index) => <article class="research-item"><span>0{index + 1}</span><div><h3>{item.title}</h3><p>{item.description}</p></div></article>)}</div>
+  </section>
+  <section class="detail-section"><p class="section-kicker">Approach</p><h2 class="section-title">Methods & collaboration</h2><p class="wide-copy">Describe your methods, datasets, field sites, technical practice, or interdisciplinary collaborations here. This is also a good place to explain what makes your approach distinctive.</p></section>
+  <footer><span>© {new Date().getFullYear()} {profile.name}</span><span>Research</span></footer>
+</Layout>

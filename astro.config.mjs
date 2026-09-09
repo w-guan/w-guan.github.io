@@ -1,0 +1,75 @@
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
+import compress from 'astro-compress';
+
+export default defineConfig({
+  site: 'https://example.com/', // Replace with your final domain before publishing.
+  output: 'static',
+  trailingSlash: 'always',
+
+  // Integrations
+  integrations: [tailwind(), sitemap(), compress({
+    css: true,
+    html: true,
+    js: true,
+    img: {
+      quality: 80,
+    },
+    svg: true,
+    logger: 1,
+  })],
+
+  // Built-in image optimization settings
+  // Removed image service config as sharp is not a direct project dependency
+  // image: {
+  //   service: {
+  //     entrypoint: 'astro/assets/services/sharp'
+  //   }
+  // },
+
+  vite: {
+    clearScreen: false,
+
+    build: {
+      cssCodeSplit: true
+    },
+    ssr: {
+      external: ['aos']
+    }
+  },
+
+  // Add cache headers for static assets
+  headers: {
+    '/_astro/*': [
+      {
+        key: 'Cache-Control',
+        value: 'public, max-age=31536000, immutable'
+      }
+    ],
+    '/assets/*': [
+      {
+        key: 'Cache-Control',
+        value: 'public, max-age=31536000, immutable'
+      }
+    ],
+    '/*.css': [
+      {
+        key: 'Cache-Control',
+        value: 'public, max-age=31536000, immutable'
+      }
+    ],
+    '/*.js': [
+      {
+        key: 'Cache-Control',
+        value: 'public, max-age=31536000, immutable'
+      }
+    ],
+    '/*.webp': [
+      {
+        key: 'Cache-Control',
+        value: 'public, max-age=31536000, immutable'
+      }
+    ]
+  }
+});
