@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import compress from 'astro-compress';
 
 export default defineConfig({
-  site: 'https://example.com/', // Replace with your final domain before publishing.
+  site: 'https://w-guan.github.io/',
   output: 'static',
   trailingSlash: 'always',
 

@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ArrowUpRight } from '@lucide/astro';
+import { profile } from '../data/profile';
+import { updates } from '../data/updates';
+const sortedUpdates = [...updates].sort((a, b) => b.date.localeCompare(a.date));
+const formatDate = (date: string) => new Intl.DateTimeFormat('en', { month: 'short', year: 'numeric' }).format(new Date(`${date}T12:00:00`));
+---
+
+<Layout title={`News & Updates — ${profile.name}`} description={`News, presentations, publications, and academic updates from ${profile.name}.`}>
+  <header class="page-hero"><p class="section-kicker">News & updates</p><h2>Presentations, publications, and milestones.</h2><p>A chronological record of recent and upcoming academic activity.</p></header>
+  <section class="detail-section">
+    <div class="updates-list full">{sortedUpdates.map((item) => <article class="update-item"><time datetime={item.date}>{formatDate(item.date)}</time><div><h3>{item.url ? <a href={item.url} target="_blank" rel="noopener noreferrer">{item.title} <ArrowUpRight size={15} /></a> : item.title}</h3><p>{item.description}</p></div></article>)}</div>
+  </section>
+  <footer><span>© {new Date().getFullYear()} {profile.name}</span><span>News & Updates</span></footer>
+</Layout>

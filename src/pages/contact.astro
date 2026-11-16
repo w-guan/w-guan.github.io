@@ -1,16 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { BookOpen, Github, GraduationCap, Mail, MapPin } from '@lucide/astro';
+import { BookOpen, Github, Linkedin, Mail, MapPin } from '@lucide/astro';
 import { profile } from '../data/profile';
+const obfuscatedEmail = `${profile.email.user} [at] ${profile.email.domain.replaceAll('.', ' [dot] ')}`;
 ---
 <Layout title={`Contact — ${profile.name}`} description={`Contact information and academic profiles for ${profile.name}.`}>
-  <header class="page-hero"><p class="section-kicker">Contact</p><h2>Let’s discuss research and collaboration.</h2><p>Add whether you welcome research, speaking, supervision, media, or industry enquiries.</p></header>
+  <header class="page-hero"><p class="section-kicker">Contact</p><h2>Let’s Discuss Research and Collaboration</h2><p>For research collaborations, postdoctoral opportunities, invited talks, or workshops, please get in touch.</p></header>
   <section class="detail-section contact-grid">
-    <a class="contact-card" href={`mailto:${profile.email}`}><Mail size={20} /><span>Email</span><strong>{profile.email}</strong></a>
+    <div class="contact-card"><Mail size={20} /><span>Email</span><strong>{obfuscatedEmail}</strong></div>
     <div class="contact-card"><MapPin size={20} /><span>Location</span><strong>{profile.location}</strong></div>
-    <a class="contact-card" href={profile.links.scholar || '#'}><GraduationCap size={20} /><span>Google Scholar</span><strong>Add profile URL</strong></a>
-    <a class="contact-card" href={profile.links.orcid || '#'}><BookOpen size={20} /><span>ORCID</span><strong>Add ORCID iD</strong></a>
-    <a class="contact-card" href={profile.links.github || '#'}><Github size={20} /><span>GitHub</span><strong>Add profile URL</strong></a>
+    {profile.links.linkedin && <a class="contact-card" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin size={20} /><span>LinkedIn</span><strong>View profile</strong></a>}
+    {profile.links.orcid && <a class="contact-card" href={profile.links.orcid} target="_blank" rel="noopener noreferrer"><BookOpen size={20} /><span>ORCID</span><strong>0009-0000-8589-0409</strong></a>}
+    {profile.links.github && <a class="contact-card" href={profile.links.github} target="_blank" rel="noopener noreferrer"><Github size={20} /><span>GitHub</span><strong>w-guan</strong></a>}
   </section>
   <footer><span>© {new Date().getFullYear()} {profile.name}</span><span>Contact</span></footer>
 </Layout>

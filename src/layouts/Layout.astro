@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import { Menu } from '@lucide/astro';
 import ProfileSidebar from '../components/layout/ProfileSidebar.astro';
-import favicon from '../assets/favicon.png';
+import favicon from '../assets/wg_logo.png';
 import profileImg from '../assets/profile.png';
 import { profile } from '../data/profile';
 
@@ -15,6 +15,7 @@ const nav = [
   { title: 'Research', url: '/research/' },
   { title: 'Publications', url: '/publications/' },
   { title: 'Experience', url: '/experience/' },
+  { title: 'Field Notes', url: '/field-notes/' },
   { title: 'Contact', url: '/contact/' },
 ];
 const isActive = (url: string) => url === '/' ? Astro.url.pathname === '/' : Astro.url.pathname.startsWith(url);
@@ -24,7 +25,7 @@ const isActive = (url: string) => url === '/' ? Astro.url.pathname === '/' : Ast
 <html lang="en">
   <head>
     <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} /><meta name="author" content={profile.name} /><meta name="theme-color" content="#f4f1ea" />
+    <meta name="description" content={description} /><meta name="author" content={profile.name} /><meta name="theme-color" content="#302b3d" />
     <title>{title}</title><link rel="icon" type="image/png" href={favicon.src} /><link rel="canonical" href={canonical} />
     <meta property="og:type" content="profile" /><meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:image" content={image} /><meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary" /><meta name="twitter:title" content={title} /><meta name="twitter:description" content={description} /><meta name="twitter:image" content={image} />

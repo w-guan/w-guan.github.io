@@ -1,6 +1,9 @@
 # build output
 .output/
 
+# Private original photographs; only sanitised web copies belong in public/
+private/
+
 # logs
 pnpm-debug.log*
 

@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Camera } from '@lucide/astro';
+import { profile } from '../data/profile';
+import { photoGroups } from '../data/fieldNotes';
+const visiblePhotoGroups = photoGroups.filter((group) => group.visible !== false);
+---
+
+<Layout title={`Field Notes — ${profile.name}`} description={`Photography by ${profile.name}.`}>
+  <header class="page-hero">
+    <p class="section-kicker">Field Notes</p>
+    <h2>A different kind of fieldwork.</h2>
+    <p>Notes from trails, coastlines, and places observed beyond academic research. Nature is where I reset.</p>
+  </header>
+
+  {visiblePhotoGroups.length > 0 && <section class="detail-section">
+    <div class="section-heading photography-heading"><div><p class="section-kicker"><Camera size={14} /> Photography</p></div></div>
+    <div class="photo-groups">
+      {visiblePhotoGroups.map((group) => <article class="photo-group">
+        <div class="photo-group-heading">
+          <p class="note-meta">{group.title} · {group.year}</p>
+          {group.description && <p>{group.description}</p>}
+        </div>
+        <div class="photo-grid">
+          {group.images.map((photo) => <figure class:list={['photo-note', photo.orientation]}>
+            <img src={photo.src} alt={photo.alt} loading="lazy" />
+          </figure>)}
+        </div>
+      </article>)}
+    </div>
+  </section>}
+
+  {visiblePhotoGroups.length > 0 && <div class="photo-rights">All photographs © {new Date().getFullYear()} {profile.name}. All rights reserved. No reproduction or reuse without permission.</div>}
+  <footer><span>© {new Date().getFullYear()} {profile.name}</span><span>Field Notes</span></footer>
+</Layout>

@@ -1,12 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { profile, researchInterests } from '../data/profile';
+import { profile, researchApproach, researchInterests } from '../data/profile';
 ---
 <Layout title={`Research — ${profile.name}`} description={`Research interests and agenda of ${profile.name}.`}>
-  <header class="page-hero"><p class="section-kicker">Research</p><h2>Questions and themes that guide my work.</h2><p>Use this page to explain the intellectual thread connecting your projects—not only to list keywords.</p></header>
+  <header class="page-hero"><p class="section-kicker">Research</p><h2>Interpreting Language Use in Context</h2><p>I study how patterns of language use vary across communicative contexts using corpus-based quantitative and qualitative analysis, as in my doctoral research on metadiscourse. My broader research interests connect context-sensitive interpretation with corpus annotation and mixed-methods analysis, including approaches that keep meaningful annotator disagreement visible.</p></header>
   <section class="detail-section">
     <div class="research-list">{researchInterests.map((item, index) => <article class="research-item"><span>0{index + 1}</span><div><h3>{item.title}</h3><p>{item.description}</p></div></article>)}</div>
   </section>
-  <section class="detail-section"><p class="section-kicker">Approach</p><h2 class="section-title">Methods & collaboration</h2><p class="wide-copy">Describe your methods, datasets, field sites, technical practice, or interdisciplinary collaborations here. This is also a good place to explain what makes your approach distinctive.</p></section>
+  <section class="detail-section">
+    <p class="section-kicker">Approach</p>
+    <h2 class="section-title">{researchApproach.title}</h2>
+    {researchApproach.paragraphs.map((paragraph) => <p class="wide-copy">{paragraph}</p>)}
+  </section>
   <footer><span>© {new Date().getFullYear()} {profile.name}</span><span>Research</span></footer>
 </Layout>
