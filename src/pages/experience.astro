@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { academicService, awards, experience, profile, studentSupervision } from '../data/profile';
 ---
 <Layout title={`Experience — ${profile.name}`} description={`Academic training, experience, and student supervision by ${profile.name}.`}>
-  <header class="page-hero"><p class="section-kicker">Experience</p><h2>Education & Academic Experience</h2><p>Academic training and selected experience relevant to my research profile.</p></header>
+  <header class="page-hero page-hero-wide"><p class="section-kicker">Experience</p><h2>Education & Academic Experience</h2><p>Academic training and selected experience relevant to my research profile.</p></header>
   <section class="detail-section experience-section">
     <h2 class="section-title">Education</h2>
     <div class="experience-list">{experience.map((item) => <article class="experience-item"><div><p class="period">{item.period}</p><span class="item-kind">{item.kind}</span></div><div><h3>{item.role}</h3><p class="institution">{item.institution}</p>{item.description && <p>{item.description}</p>}</div></article>)}</div>

@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { profile, researchApproach, researchInterests } from '../data/profile';
 ---
 <Layout title={`Research — ${profile.name}`} description={`Research interests and agenda of ${profile.name}.`}>
-  <header class="page-hero"><p class="section-kicker">Research</p><h2>Interpreting Language Use in Context</h2><p>I study how patterns of language use vary across communicative contexts using corpus-based quantitative and qualitative analysis, as in my doctoral research on metadiscourse. My broader research interests connect context-sensitive interpretation with corpus annotation and mixed-methods analysis, including approaches that keep meaningful annotator disagreement visible.</p></header>
+  <header class="page-hero page-hero-wide"><p class="section-kicker">Research</p><h2>Interpreting Language Use in Context</h2><p>I study how patterns of language use vary across communicative contexts using corpus-based quantitative and qualitative analysis, as in my doctoral research on metadiscourse. My broader research interests connect context-sensitive interpretation with corpus annotation and mixed-methods analysis, including approaches that keep meaningful annotator disagreement visible.</p></header>
   <section class="detail-section">
     <div class="research-list">{researchInterests.map((item, index) => <article class="research-item"><span>0{index + 1}</span><div><h3>{item.title}</h3><p>{item.description}</p></div></article>)}</div>
   </section>
