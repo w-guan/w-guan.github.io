@@ -46,7 +46,7 @@ export const researchInterests = [
   },
   {
     title: 'Corpus Annotation and Interpretive Variation',
-    description: 'I am interested in how complex, context-dependent linguistic phenomena are annotated in corpora and in what inter-annotator disagreement reveals about ambiguity, category boundaries, and competing yet plausible interpretations. Rather than treating such disagreement only as error, I am interested in how annotation practices can account for meaningful differences in interpretation.',
+    description: 'I am interested in how complex, context-dependent linguistic phenomena are annotated in corpora and in what inter-annotator disagreement reveals about ambiguity, category boundaries, and competing yet plausible interpretations. These questions motivate me to explore annotation practices that retain meaningful differences in interpretation rather than reducing disagreement to error.',
   },
 ];
 
