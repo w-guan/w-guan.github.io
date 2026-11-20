@@ -20,7 +20,7 @@ export const profile = {
   bio: [
     'I am Wenwen, a PhD candidate working across corpus and computational linguistics. My doctoral research examines metadiscourse in argumentative writing and speaking by learners at lower proficiency levels, using variation across registers to understand their rhetorical repertoire and sensitivity to different communicative demands.',
     'Rather than relying on frequency-based comparisons alone, I examine functional patterns, linguistic realisations, and the context-sensitive relationships between metadiscoursal functions and forms. Analysing these relationships often depends on careful human interpretation and annotation.',
-    'This work has led to a broader interest in how interpretive judgements become structured linguistic data. I am particularly interested in whether annotator disagreement reflects inconsistency, uncertainty, contextual ambiguity, or genuinely different interpretations—and in annotation practices that preserve analytically meaningful variation.',
+    'This work has led to a broader interest in how interpretive judgements become structured linguistic data. I am particularly interested in whether annotator disagreement reflects inconsistency, uncertainty, contextual ambiguity, or genuinely different interpretations—and in annotation practices that preserve analytically meaningful variation. More broadly, this has led me to ask how annotation and analytical decisions affect the validity and robustness of corpus-based findings about variation in language use.',
   ],
   availability: [
     'Open to research collaborations',
@@ -42,19 +42,19 @@ export const researchInterests = [
   },
   {
     title: 'Context-Sensitive Variation in Language Use',
-    description: 'I study how the same linguistic forms can serve different communicative functions depending on task, register, and mode, and how interpretation is shaped by sociocultural experience and L1 background. My current analytical lens is metadiscourse: the linguistic resources used to organise discourse, express stance, and engage audiences.',
+    description: 'I study how the same linguistic forms can serve different communicative functions depending on task, register, and mode, with attention to the possible influence of sociocultural experience and L1 background. My current analytical lens is metadiscourse: the linguistic resources used to organise discourse, express stance, and engage audiences.',
   },
   {
-    title: 'Multiple Perspectives in Corpus Annotation',
-    description: 'I study what differences across human annotations reveal about ambiguity, category boundaries, and competing yet plausible interpretations. Rather than treating annotator disagreement only as error, I am interested in annotation frameworks that preserve meaningful differences in interpretation.',
+    title: 'Corpus Annotation and Interpretive Variation',
+    description: 'I am interested in how complex, context-dependent linguistic phenomena are annotated in corpora and in what inter-annotator disagreement reveals about ambiguity, category boundaries, and competing yet plausible interpretations. Rather than treating such disagreement only as error, I am interested in how annotation practices can account for meaningful differences in interpretation.',
   },
 ];
 
 export const researchApproach = {
   title: 'Analysing and Annotating Context-Dependent Corpus Data',
   paragraphs: [
-    'I analyse complex, context-dependent corpus data by moving iteratively between quantitative and qualitative evidence. Frequency distributions, comparative measures, and statistical models help me locate robust patterns; close reading of concordance lines and extended discourse allows me to test what those patterns mean in context, account for exceptions, and avoid treating numerical differences as self-explanatory.',
-    'I am also interested in the methodological and linguistic implications of corpus annotation, particularly how annotation schemes and interpretive decisions shape the representation of linguistic phenomena. A related focus is human label variation, including how annotators differ in their interpretations of context-dependent language use and whether these differences reflect linguistic ambiguity, overlapping categories, or annotation practices. This direction builds on my practice of combining quantitative analysis with qualitative examination of linguistic contexts, while opening up questions about whether retaining annotator-level judgments and label distributions can provide a more informative representation of linguistic variation than a single adjudicated label. These questions connect corpus linguistics with human-in-the-loop annotation and perspectivist approaches to NLP.',
+    'My approach combines quantitative analysis with close reading of complex, context-dependent corpus data. Quantitative methods reveal systematic patterns of variation, while contextual interpretation guides annotation and helps explain how linguistic forms map onto communicative functions.',
+    'My experience annotating a corpus has inspired me to explore whether the conventional practice of establishing a single ground-truth label is always appropriate for pragmatic, multifunctional, and context-dependent phenomena, and how this practice shapes the data used in subsequent analysis. This has developed into an interest in human label variation, including whether differences across annotations reflect linguistic ambiguity, overlapping categories, or features of the annotation process itself. I am particularly interested in whether retaining annotator-level judgments and label distributions can represent such interpretive variation more informatively than a single adjudicated label. More broadly, I want to examine how annotation and analytical choices affect the validity and robustness of corpus-based findings, connecting corpus linguistics with human-in-the-loop annotation and perspectivist approaches to NLP.',
   ],
 };
 
