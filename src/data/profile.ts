@@ -45,7 +45,7 @@ export const researchInterests = [
     description: 'I study how the same linguistic forms can serve different communicative functions depending on task, register, and mode, with attention to the possible influence of sociocultural experience and L1 background. My current analytical lens is metadiscourse: the linguistic resources used to organise discourse, express stance, and engage audiences.',
   },
   {
-    title: 'Corpus Annotation and Interpretive Variation',
+    title: 'Interpretation and Disagreement in Corpus Annotation',
     description: 'I am interested in how complex, context-dependent linguistic phenomena are annotated in corpora and in what inter-annotator disagreement reveals about ambiguity, category boundaries, and competing yet plausible interpretations. These questions motivate me to explore annotation practices that retain meaningful differences in interpretation rather than reducing disagreement to error.',
   },
 ];
